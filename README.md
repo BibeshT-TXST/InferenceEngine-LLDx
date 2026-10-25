@@ -78,7 +78,7 @@ cargo xtask fixtures --tiny                                # needs uv
 ```
 
 ## Docs
-[Architecture](docs/ARCHITECTURE.md) · [Testing](docs/TESTING.md) · [Contributing](CONTRIBUTING.md) · [Decisions](docs/architecture-decision-records/) · [References](docs/REFERENCES.md)
+[Architecture](docs/ARCHITECTURE.md) · [Testing](docs/TESTING.md) · [Decisions](docs/architecture-decision-records/) · [References](docs/REFERENCES.md)
 
 ## License
 MIT OR Apache-2.0
