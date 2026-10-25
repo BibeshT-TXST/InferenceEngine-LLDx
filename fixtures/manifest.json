@@ -1,0 +1,25 @@
+{
+  "tiny": {
+    "description": "Random-weight SmolLM3, seeded, for tier-2 gates",
+    "files": {
+      "tiny/config.json": "e7090ec6e1ffb3ee4cb64d1c11ed854f479f8ac8ed21f24e5a3dc4920b7091a8",
+      "tiny/model.safetensors": "ac1cda00755767f049ef1f608096d879cc3e43f7675ae9668fe34146db7dd8ba",
+      "tiny/reference.safetensors": "23429fbb5e4ddf2a7835566cd9acf04bb5904cd6529c7ca31d998e8d5d1aa573"
+    },
+    "libraries": {
+      "python": "3.13.11",
+      "safetensors": "0.8.0",
+      "torch": "2.14.1",
+      "transformers": "5.20.2"
+    },
+    "model_repo": null,
+    "no_rope_layers": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "revision": null,
+    "seed": 0
+  }
+}

@@ -1,0 +1,15 @@
+[project]
+name = "lldx-fixtures"
+version = "0.0.0"
+description = "Reference fixtures for lldx-engine gates, generated with Hugging Face Transformers on CPU in float32."
+requires-python = "==3.13.*"
+# Exact pins: fixture bytes and reference values depend on these versions.
+# SmolLM3 support needs transformers >= 4.53.
+dependencies = [
+    "safetensors==0.8.0",
+    "torch==2.14.1",
+    "transformers==5.20.2",
+]
+
+[tool.uv]
+package = false

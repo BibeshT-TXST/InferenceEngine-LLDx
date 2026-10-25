@@ -1,0 +1,10 @@
+# cargo-about configuration. Generate the third-party license list with:
+#   cargo about generate about.hbs > THIRD_PARTY_LICENSES.md
+# Reference: https://embarkstudios.github.io/cargo-about/cli/generate/config.html
+
+# Priority order: the first license that satisfies a crate's expression is the one listed.
+accepted = ["Apache-2.0", "MIT", "Unicode-3.0", "Zlib"]
+targets = ["aarch64-apple-darwin"]
+# Only what ships in the binaries.
+ignore-build-dependencies = false
+ignore-dev-dependencies = true

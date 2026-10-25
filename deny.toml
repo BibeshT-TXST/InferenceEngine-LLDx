@@ -1,0 +1,41 @@
+# cargo-deny policy. Run with `cargo deny check`.
+# Reference: https://embarkstudios.github.io/cargo-deny/
+
+[graph]
+# The only supported target (rust-toolchain.toml).
+targets = ["aarch64-apple-darwin"]
+all-features = true
+
+[advisories]
+# Every RustSec advisory (vulnerability, unmaintained, unsound, yanked) fails the check.
+# An ignore needs a reason, and is revisited on every upgrade of the crate that pulls it in.
+ignore = [
+    # zip 8.6.0 is a hard dependency of candle-core 0.11.0 (`^8.6.0`, also on Candle main).
+    # All three are in `ZipArchive::extract()`, which candle-core never calls (it only reads
+    # .npz entries by name in npy.rs), and we never load .npz files. Fixed in zip >= 9.
+    { id = "RUSTSEC-2026-0367", reason = "zip extract() only; not reachable through candle-core 0.11.0" },
+    { id = "RUSTSEC-2026-0368", reason = "zip extract() only; not reachable through candle-core 0.11.0" },
+    { id = "RUSTSEC-2026-0369", reason = "zip extract() only; not reachable through candle-core 0.11.0" },
+    # paste is unmaintained, not vulnerable. It is a compile-time proc-macro pulled in by gemm (candle-core).
+    { id = "RUSTSEC-2024-0436", reason = "unmaintained compile-time proc-macro via candle-core -> gemm; no safe upgrade" },
+]
+
+[licenses]
+# Only licenses present in the dependency graph are listed. Adding one needs a review.
+allow = ["Apache-2.0", "MIT", "Unicode-3.0", "Zlib"]
+confidence-threshold = 0.93
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+allow-wildcard-paths = true
+deny = [
+    # The library only emits tracing events; installing a subscriber is the CLI's job.
+    { crate = "tracing-subscriber", wrappers = ["lldx-engine-cli"], reason = "only binaries install a subscriber (CONTRIBUTING.md, Logging)" },
+]
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []

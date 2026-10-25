@@ -1,0 +1,14 @@
+# Test tiers are described in docs/TESTING.md.
+
+[profile.default]
+retries = 0
+
+# CI runs tiers 1 and 2 only. Tier-3 tests (real model, Metal/GPU) live in a
+# `tier3` module and run on a local Mac with the default profile.
+[profile.ci]
+retries = 0
+fail-fast = false
+default-filter = "not test(/(^|::)tier3::/)"
+
+[profile.ci.junit]
+path = "junit.xml"
