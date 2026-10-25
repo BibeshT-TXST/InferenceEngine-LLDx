@@ -1,0 +1,28 @@
+[workspace]
+resolver = "3"
+members = ["crates/cli", "crates/engine", "crates/xtask"]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.99"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/BibeshT-TXST/InferenceEngine-LLDx"
+authors = ["Bibesh Timalsina"]
+
+[workspace.dependencies]
+lldx-engine = { path = "crates/engine", version = "0.0.0" }
+anyhow = "1.0.104"
+# Exact pin: Candle is an internal backend (ADR-03), upgraded deliberately.
+candle-core = { version = "=0.11.0", features = ["metal"] }
+clap = { version = "4.6.7", features = ["derive"] }
+serde_json = "1.0.154"
+sha2 = "0.11.1"
+tracing ="0.1.44"
+tracing-subscriber = { version = "0.3.23", default-features = false, features = ["ansi", "fmt", "json", "std"] }
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+pedantic = { level = "warn", priority = -1 }

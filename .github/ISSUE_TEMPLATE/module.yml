@@ -1,0 +1,69 @@
+name: Module
+description: One roadmap module. One issue, one branch, one PR.
+title: "M<n>: <module title>"
+body:
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      options:
+        - "0: Foundation"
+        - "1: Load and tokenize"
+        - "2: Forward pass"
+        - "3: Generation"
+        - "4: Optimization"
+        - "5: Harness-facing"
+        - "6: Ship"
+    validations:
+      required: true
+  - type: input
+    id: module
+    attributes:
+      label: Module number
+      placeholder: "M11"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What this module builds, including the files it creates.
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: What this module deliberately leaves to later modules.
+    validations:
+      required: true
+  - type: textarea
+    id: gate
+    attributes:
+      label: Gate
+      description: The exact check that must pass, including tolerances where relevant. See docs/TESTING.md.
+    validations:
+      required: true
+  - type: checkboxes
+    id: tiers
+    attributes:
+      label: Tiers
+      description: Which test tiers the gate runs at.
+      options:
+        - label: "Tier 1: unit tests (CI)"
+        - label: "Tier 2: parity against fixtures/tiny (CI)"
+        - label: "Tier 3: parity against real SmolLM3-3B, local Mac (includes all Metal/GPU tests)"
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Metrics and logs
+      description: Metrics recorded and tracing events emitted by this module.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Papers, source files and docs this module depends on. Each goes into docs/REFERENCES.md.
+    validations:
+      required: true

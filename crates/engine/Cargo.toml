@@ -1,0 +1,17 @@
+[package]
+name = "lldx-engine"
+description = "A from-scratch LLM inference engine for Apple Silicon."
+readme = "../../README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+candle-core.workspace = true
+tracing.workspace = true
+
+[lints]
+workspace = true

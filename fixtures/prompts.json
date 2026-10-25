@@ -1,0 +1,13 @@
+{
+  "reference_batch": ["log-error", "emoji"],
+  "prompts": [
+    {"id": "log-error", "text": "ERROR 2026-10-25T05:54:55Z db: connection refused (retry 3/5)"},
+    {"id": "emoji", "text": "Deploy failed 🚨 after 3 retries 🔁, rollback done ✅"},
+    {"id": "short", "text": "Hello"},
+    {"id": "accents", "text": "Café, naïve façade, coöperate, São Paulo"},
+    {"id": "cjk", "text": "日志显示内存不足。ログにエラーがあります。"},
+    {"id": "zwj-flags", "text": "Team: 👩‍💻👨🏽‍🔧 from 🇳🇵 and 🇺🇸"},
+    {"id": "whitespace", "text": "  leading spaces,\ttabs\tand\nnew lines\n"},
+    {"id": "code", "text": "fn main() { println!(\"{}\", 1 + 1); }"}
+  ]
+}

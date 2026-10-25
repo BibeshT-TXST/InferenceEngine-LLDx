@@ -1,0 +1,27 @@
+[package]
+name = "lldx-engine-cli"
+description = "Development and benchmark CLI for the lldx-engine library."
+publish = false
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "lldx-engine"
+path = "src/main.rs"
+
+[dependencies]
+lldx-engine.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true
+
+[lints]
+workspace = true
