@@ -1,6 +1,6 @@
 name: Module
 description: One roadmap module. One issue, one branch, one PR.
-title: "#<n>: <module title>"
+title: "M<n>: <module title>"
 body:
   - type: dropdown
     id: phase
@@ -20,7 +20,7 @@ body:
     id: module
     attributes:
       label: Module number
-      placeholder: "#11"
+      placeholder: "M11"
     validations:
       required: true
   - type: textarea
@@ -65,3 +65,5 @@ body:
     attributes:
       label: References
       description: Papers, source files and docs this module depends on. Each goes into docs/REFERENCES.md.
+    validations:
+      required: true
